@@ -4,14 +4,23 @@ import reveal_slides as rs
 with open("slides_intro1.md", "r", encoding="utf-8") as f:
     slides_content = f.read()
 
-rs.slides(content=slides_content,theme="solarized",  # Тема с хорошей подсветкой кода
+# Настройки Reveal.js
+rs.slides(
+    content=slides_content,
+    theme="solarized", 
     height=600,
     config={
         "controls": True,
         "progress": True,
         "center": True,
-        "transition": "slide"
-    })
+        "transition": "slide",
+        "plugins": ["highlight"],  
+        "highlight": {
+            "theme": "zenburn"  
+        }
+    }
+)
+
 st.markdown(
     """
     <style>
